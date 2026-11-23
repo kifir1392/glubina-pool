@@ -63,8 +63,8 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="hero-title">
-              Инжиниринг бассейнов <br />
-              <span className="gradient-text">на уровне глубины</span>
+              Бассейны <br />
+              <span className="gradient-text">без компромиссов</span>
             </h1>
           </motion.div>
 
@@ -74,9 +74,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="hero-subtitle"
           >
-            Мы не просто строим чаши. Мы проектируем сложные гидравлические системы,
-            где каждый узел рассчитан, а каждый литр воды работает на ваш комфорт.
-            Краснодар и весь юг России.
+            Инженерный подход к каждому проекту. Точные расчёты, проверенное
+            оборудование, гарантия 5 лет. Краснодар и юг России.
           </motion.p>
 
           <motion.div
@@ -91,17 +90,17 @@ export default function Home() {
         </div>
       </main>
 
-            {/* ===== SERVICES ===== */}
+      {/* ===== SERVICES ===== */}
       <section className="services" id="services">
         <div className="services-inner">
           <span className="section-label">Наши услуги</span>
-          <h2 className="section-title">Полный цикл работ</h2>
+          <h2 className="section-title">Полный цикл — от идеи до воды</h2>
           <p className="section-subtitle">
-            От первого эскиза до запуска системы. Каждый этап под контролем инженера.
+            Проектирование, строительство, оборудование, сервис.
+            Один подрядчик — одна ответственность.
           </p>
 
           <div className="services-grid">
-            {/* Карточка 1 */}
             <div className="service-card">
               <div className="service-icon">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -110,11 +109,11 @@ export default function Home() {
               </div>
               <h3 className="service-title">Проектирование и дизайн</h3>
               <p className="service-desc">
-                3D-визуализация, планировка чаши, подбор материалов. Учитываем архитектуру участка и ваши пожелания.
+                3D-визуализация, планировка чаши, подбор материалов. Учитываем
+                архитектуру участка и ваши пожелания.
               </p>
             </div>
 
-            {/* Карточка 2 */}
             <div className="service-card">
               <div className="service-icon">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -123,11 +122,11 @@ export default function Home() {
               </div>
               <h3 className="service-title">Инженерные системы</h3>
               <p className="service-desc">
-                Гидравлические расчеты, подбор насосов, фильтров, систем подогрева и дезинфекции. Точные схемы обвязки.
+                Гидравлические расчеты, подбор насосов, фильтров, систем подогрева
+                и дезинфекции. Точные схемы обвязки.
               </p>
             </div>
 
-            {/* Карточка 3 */}
             <div className="service-card">
               <div className="service-icon">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -136,11 +135,11 @@ export default function Home() {
               </div>
               <h3 className="service-title">Строительство под ключ</h3>
               <p className="service-desc">
-                Земляные работы, бетонирование чаши, гидроизоляция, монтаж оборудования, пуско-наладка.
+                Земляные работы, бетонирование чаши, гидроизоляция, монтаж
+                оборудования, пуско-наладка.
               </p>
             </div>
 
-            {/* Карточка 4 */}
             <div className="service-card">
               <div className="service-icon">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -150,24 +149,25 @@ export default function Home() {
               </div>
               <h3 className="service-title">Сервис и обслуживание</h3>
               <p className="service-desc">
-                Регулярная чистка, контроль химии, сезонная консервация и расконсервация бассейна.
+                Регулярная чистка, контроль химии, сезонная консервация и
+                расконсервация бассейна.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-            {/* ===== PORTFOLIO ===== */}
+      {/* ===== PORTFOLIO ===== */}
       <section className="portfolio" id="portfolio">
         <div className="portfolio-inner">
           <span className="section-label">Портфолио</span>
-          <h2 className="section-title">Реализованные объекты</h2>
+          <h2 className="section-title">Наши работы говорят за нас</h2>
           <p className="section-subtitle">
-            Каждый проект — это уникальное инженерное решение, адаптированное под участок и задачи клиента.
+            150+ бассейнов по всему югу России. Посмотрите, что мы создали для
+            наших клиентов.
           </p>
 
           <div className="portfolio-grid">
-            {/* Проект 1 */}
             <div className="portfolio-card">
               <div className="portfolio-image">
                 <span className="portfolio-placeholder">Фото проекта</span>
@@ -179,12 +179,12 @@ export default function Home() {
                 <div className="portfolio-location">Краснодар</div>
                 <h3 className="portfolio-title">Частный бассейн 8×4 м</h3>
                 <p className="portfolio-specs">
-                  Бетонная чаша, система перелива, подогрев тепловым насосом, автоматика pH/Cl.
+                  Бетонная чаша, система перелива, подогрев тепловым насосом,
+                  автоматика pH/Cl.
                 </p>
               </div>
             </div>
 
-            {/* Проект 2 */}
             <div className="portfolio-card">
               <div className="portfolio-image" style={{ background: 'linear-gradient(135deg, #0f4c75 0%, #0a1628 100%)' }}>
                 <span className="portfolio-placeholder">Фото проекта</span>
@@ -196,12 +196,12 @@ export default function Home() {
                 <div className="portfolio-location">Геленджик</div>
                 <h3 className="portfolio-title">SPA-зона с бассейном</h3>
                 <p className="portfolio-specs">
-                  Интеграция с ландшафтом, подсветка LED, система противотока, джакузи.
+                  Интеграция с ландшафтом, подсветка LED, система противотока,
+                  джакузи.
                 </p>
               </div>
             </div>
 
-            {/* Проект 3 */}
             <div className="portfolio-card">
               <div className="portfolio-image" style={{ background: 'linear-gradient(135deg, #1a365d 0%, #0a1628 100%)' }}>
                 <span className="portfolio-placeholder">Фото проекта</span>
@@ -213,7 +213,8 @@ export default function Home() {
                 <div className="portfolio-location">Анапа</div>
                 <h3 className="portfolio-title">Бассейн с панорамным видом</h3>
                 <p className="portfolio-specs">
-                 Infinity-edge, стеклянная стена, система подогрева dna, автоматическая химия.
+                  Infinity-edge, стеклянная стена, система подогрева,
+                  автоматическая химия.
                 </p>
               </div>
             </div>
@@ -221,16 +222,16 @@ export default function Home() {
         </div>
       </section>
 
-            {/* ===== ABOUT ===== */}
+      {/* ===== ABOUT ===== */}
       <section className="about" id="about">
         <div className="about-inner">
           <span className="section-label">О компании</span>
-          <h2 className="section-title">Инженерный подход к каждому бассейну</h2>
+          <h2 className="section-title">Почему выбирают нас</h2>
           <p className="section-subtitle">
-            Мы не копируем типовые решения. Каждый проект начинается с анализа участка, грунта и задач клиента.
+            12 лет строим бассейны. 150+ довольных клиентов. 5 лет гарантии.
+            Цифры говорят сами за себя.
           </p>
 
-          {/* Цифры */}
           <div className="about-stats">
             <div className="stat-card">
               <div className="stat-number">12<span>+</span></div>
@@ -241,16 +242,15 @@ export default function Home() {
               <div className="stat-label">реализованных объектов</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">8<span>000</span></div>
+              <div className="stat-number">8000</div>
               <div className="stat-label">м² построено</div>
             </div>
             <div className="stat-card">
-              <div className="stat-number">5<span>лет</span></div>
+              <div className="stat-number">5<span> лет</span></div>
               <div className="stat-label">гарантия на работы</div>
             </div>
           </div>
 
-          {/* Преимущества */}
           <div className="about-features">
             <div className="feature-item">
               <div className="feature-icon">
@@ -260,7 +260,10 @@ export default function Home() {
               </div>
               <div>
                 <div className="feature-title">Гарантия 5 лет</div>
-                <div className="feature-desc">На чашу и инженерные системы. Сервисное обслуживание после сдачи.</div>
+                <div className="feature-desc">
+                  На чашу и инженерные системы. Сервисное обслуживание после
+                  сдачи.
+                </div>
               </div>
             </div>
 
@@ -272,7 +275,10 @@ export default function Home() {
               </div>
               <div>
                 <div className="feature-title">Точные расчёты</div>
-                <div className="feature-desc">Гидравлика, нагрузка на грунт, теплопотери — всё считаем до старта работ.</div>
+                <div className="feature-desc">
+                  Гидравлика, нагрузка на грунт, теплопотери — всё считаем до
+                  старта работ.
+                </div>
               </div>
             </div>
 
@@ -284,7 +290,10 @@ export default function Home() {
               </div>
               <div>
                 <div className="feature-title">Проверенное оборудование</div>
-                <div className="feature-desc">Работаем с Emaux, Hayward, Kripsol, AquaViva. Подбираем под бюджет.</div>
+                <div className="feature-desc">
+                  Работаем с Emaux, Hayward, Kripsol, AquaViva. Подбираем под
+                  бюджет.
+                </div>
               </div>
             </div>
 
@@ -296,24 +305,26 @@ export default function Home() {
               </div>
               <div>
                 <div className="feature-title">Своя бригада</div>
-                <div className="feature-desc">Без субподрядчиков. Контроль качества на каждом этапе строительства.</div>
+                <div className="feature-desc">
+                  Без субподрядчиков. Контроль качества на каждом этапе
+                  строительства.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-            {/* ===== CONTACTS ===== */}
+      {/* ===== CONTACTS ===== */}
       <section className="contacts" id="contacts">
         <div className="contacts-inner">
           <span className="section-label">Контакты</span>
-          <h2 className="section-title">Обсудим ваш проект</h2>
+          <h2 className="section-title">Давайте создадим ваш бассейн</h2>
           <p className="section-subtitle">
-            Оставьте заявку — мы свяжемся в течение рабочего дня и ответим на все вопросы.
+            Расскажите о вашей идее — мы предложим лучшее решение.
           </p>
 
           <div className="contacts-grid">
-            {/* Контактная информация */}
             <div className="contacts-info">
               <div className="contact-item">
                 <div className="contact-icon">
@@ -369,35 +380,69 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Форма заявки */}
-            <form className="contact-form" onSubmit={(e) => { e.preventDefault(); alert('Заявка отправлена! (демо)'); }}>
+            <form
+              className="contact-form"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+                
+                // Защита от двойной отправки
+                if (submitBtn.disabled) return;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+                
+                const formData = new FormData(form);
+                try {
+                  const response = await fetch('/send-form.php', {
+                    method: 'POST',
+                    body: formData,
+                  });
+                  const result = await response.json();
+                  if (result.success) {
+                    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                    form.reset();
+                  } else {
+                    alert('Ошибка: ' + result.message);
+                  }
+                } catch (error) {
+                  alert('Ошибка соединения. Попробуйте позже.');
+                } finally {
+                  submitBtn.disabled = false;
+                  submitBtn.textContent = 'Отправить заявку';
+                }
+              }}
+            >
               <div className="form-group">
                 <label className="form-label" htmlFor="name">Ваше имя</label>
-                <input 
-                  className="form-input" 
-                  type="text" 
-                  id="name" 
-                  placeholder="Как к вам обращаться" 
-                  required 
+                <input
+                  className="form-input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Как к вам обращаться"
+                  required
                 />
               </div>
 
               <div className="form-group">
                 <label className="form-label" htmlFor="phone">Телефон</label>
-                <input 
-                  className="form-input" 
-                  type="tel" 
-                  id="phone" 
-                  placeholder="+7 (___) ___-__-__" 
-                  required 
+                <input
+                  className="form-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  required
                 />
               </div>
 
               <div className="form-group">
                 <label className="form-label" htmlFor="message">Сообщение</label>
-                <textarea 
-                  className="form-textarea" 
-                  id="message" 
+                <textarea
+                  className="form-textarea"
+                  id="message"
+                  name="message"
                   placeholder="Опишите ваш проект: размеры участка, пожелания, бюджет"
                 ></textarea>
               </div>
