@@ -1650,3 +1650,45 @@ body::after {
     animation: none !important;
   }
 }
+
+/* --- мессенджеры --- */
+.messenger-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+.messenger-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.1rem; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  color: #e2e8f0; font-size: 0.9rem; font-weight: 500;
+  transition: all 0.25s;
+}
+.messenger-btn svg { width: 18px; height: 18px; }
+.messenger-btn:hover { transform: translateY(-2px); }
+.messenger-btn.wa:hover { color: #25D366; background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.4); }
+.messenger-btn.tg:hover { color: #229ED9; background: rgba(34,158,217,0.08); border-color: rgba(34,158,217,0.4); }
+.messenger-btn.max:hover { color: #2b7fff; background: rgba(43,127,255,0.08); border-color: rgba(43,127,255,0.4); }
+.float-messengers {
+  position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 40;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem;
+}
+.float-list { display: flex; flex-direction: column; align-items: flex-end; gap: 0.55rem; }
+.float-item {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 0.95rem; border-radius: 999px;
+  background: #0b1f42; border: 1px solid rgba(255,255,255,0.14);
+  color: #e2e8f0; font-size: 0.85rem; font-weight: 600;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4); transition: all 0.2s;
+}
+.float-item svg { width: 16px; height: 16px; }
+.float-item:hover { transform: translateY(-2px); }
+.float-item.wa { color: #25D366; }
+.float-item.tg { color: #229ED9; }
+.float-item.max { color: #2b7fff; }
+.float-toggle {
+  width: 52px; height: 52px; border-radius: 50%; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #2563eb, #22d3ee); color: #ffffff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 28px rgba(37,99,235,0.45); transition: transform 0.2s;
+}
+.float-toggle:hover { transform: scale(1.06); }
+.float-toggle svg { width: 22px; height: 22px; }
+@media print { .float-messengers { display: none !important; } }

@@ -1,19 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /_next/
-Disallow: /api/
+Disallow: /kp/
 
 Sitemap: https://glubina-pool.ru/sitemap.xml
-
-# Запрещаем индексацию служебных путей
-User-agent: Yandex
-Allow: /
-Disallow: /_next/
-Clean-param: utm_source&utm_medium&utm_campaign
-
-# Запрещаем плохим ботам
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /

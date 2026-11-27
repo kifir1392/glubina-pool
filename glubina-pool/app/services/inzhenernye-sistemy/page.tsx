@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteHeader from "../../components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Инженерные системы бассейна в Краснодаре — Глубина",
@@ -71,19 +72,7 @@ export default function InzhenernyeSistemyPage() {
   return (
     <>
       {/* ===== HEADER ===== */}
-      <header className="site-header">
-        <div className="header-inner">
-          <a href="/" className="logo">
-            Глубина <span className="logo-accent">.</span>
-          </a>
-          <nav className="nav-desktop">
-            <a href="/" className="nav-link">Главная</a>
-            <a href="/#services" className="nav-link">Услуги</a>
-            <a href="/#portfolio" className="nav-link">Портфолио</a>
-            <a href="/#contacts" className="btn-nav">Обсудить проект</a>
-          </nav>
-        </div>
-      </header>
+            <SiteHeader />
 
       {/* ===== HERO ===== */}
       <main className="service-hero">
@@ -182,7 +171,7 @@ export default function InzhenernyeSistemyPage() {
           background: "linear-gradient(135deg, #0f4c75 0%, #050914 100%)",
           color: "#ffffff",
           textAlign: "center",
-        }}
+        }} 
       >
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, margin: "0 0 16px", lineHeight: 1.2 }}>

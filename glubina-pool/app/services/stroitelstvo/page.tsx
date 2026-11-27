@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteHeader from "../../components/SiteHeader";
 
 export const metadata: Metadata = {
   title: "Строительство бассейнов под ключ в Краснодаре — Глубина",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://glubina-pool.ru/services/stroitelstvo/",
     type: "website",
   },
-};
+}; 
 
 const stages = [
   {
@@ -75,19 +76,7 @@ export default function StroitelstvoPage() {
   return (
     <>
       {/* ===== HEADER ===== */}
-      <header className="site-header">
-        <div className="header-inner">
-          <a href="/" className="logo">
-            Глубина <span className="logo-accent">.</span>
-          </a>
-          <nav className="nav-desktop">
-            <a href="/" className="nav-link">Главная</a>
-            <a href="/#services" className="nav-link">Услуги</a>
-            <a href="/#portfolio" className="nav-link">Портфолио</a>
-            <a href="/#contacts" className="btn-nav">Обсудить проект</a>
-          </nav>
-        </div>
-      </header>
+            <SiteHeader />
 
       {/* ===== HERO ===== */}
       <main className="service-hero">

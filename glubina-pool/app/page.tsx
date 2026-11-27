@@ -462,6 +462,73 @@ function smoothScrollTo(id: string) {
   el.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 }
 
+const MESSENGERS = [
+  {
+    id: "wa",
+    label: "WhatsApp",
+    href: "https://wa.me/79189332053",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+    ),
+  },
+  {
+    id: "tg",
+    label: "Telegram",
+    href: "https://t.me/kifir1392",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6l-3.1 14.6c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.3 7c.4-.3-.1-.5-.6-.2L7.4 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.5 1.7z"/></svg>
+    ),
+  },
+  {
+    id: "max",
+    label: "MAX",
+    href: "https://max.ru/u/f9LHodD0cOK-dmsHmHp8b3svV1DuNjpMLo7knFS1OKLIqcj2i9jSPM63dJg",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.8 1.5 5.3 3.9 6.9-.1 1.2-.6 2.6-1.6 3.6 1.9-.2 3.6-.9 4.8-1.7.9.2 1.9.3 2.9.3 5.5 0 10-3.9 10-8.7S17.5 3 12 3z"/></svg>
+    ),
+  },
+];
+
+function trackGoal(goal: string) {
+  const w = window as unknown as { ym?: (...args: unknown[]) => void };
+  if (typeof w.ym === "function") w.ym(114646906, "reachGoal", goal);
+}
+
+function FloatingMessengers() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="float-messengers">
+      {open && (
+        <div className="float-list">
+          {MESSENGERS.map((m) => (
+            <a
+              key={m.id}
+              href={m.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`float-item ${m.id}`}
+              onClick={() => trackGoal("messenger")}
+            >
+              {m.icon}
+              {m.label}
+            </a>
+          ))}
+        </div>
+      )}
+      <button
+        className="float-toggle"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-label={open ? "Скрыть мессенджеры" : "Написать в мессенджер"}
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d={open ? "M6 18L18 6M6 6l12 12" : "M8 10h8m-8 4h5m-9 8l3-3h9a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v13z"} />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 /* ============================== СТРАНИЦА ============================== */
 
 export default function Home() {
@@ -557,6 +624,7 @@ export default function Home() {
       const result = (await response.json()) as { success?: boolean; message?: string };
       if (result.success) {
         setSubmitState("success");
+        trackGoal("lead");
         form.reset();
         setMessage("");
       } else {
@@ -991,6 +1059,21 @@ export default function Home() {
                     <div className="contact-value">Пн–Сб: 9:00 – 19:00</div>
                   </div>
                 </div>
+                <div className="messenger-row">
+                  {MESSENGERS.map((m) => (
+                    <a
+                      key={m.id}
+                      href={m.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`messenger-btn ${m.id}`}
+                      onClick={() => trackGoal("messenger")}
+                    >
+                      {m.icon}
+                      {m.label}
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <form id="form" className="contact-form" onSubmit={onSubmit}>
@@ -1114,6 +1197,7 @@ export default function Home() {
 
         {/* Пузыри поверх всей страницы */}
         <BubblesLayer />
+        <FloatingMessengers />
 
         {/* JSON-LD: FAQ */}
         <script

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -66,6 +66,12 @@ export const metadata: Metadata = {
     yandex: "9e1ea5e5647779fc",
     google: "f0vbT6kolj9iH2HRG7Mwkkx-iSXbd8pzOyH985uZvPM",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#050914",
 };
 
 const jsonLd = {
