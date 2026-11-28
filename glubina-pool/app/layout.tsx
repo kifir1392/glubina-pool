@@ -1,17 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Golos_Text, Unbounded } from "next/font/google";
+import { Golos_Text } from "next/font/google";
 import "./globals.css";
 
-// Самохостинг шрифтов через next/font: без запросов к Google из браузера
+// Golos Text: Regular (400) — текст, DemiBold (600) — заголовки. Самохостинг.
 const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
+  weight: ["400", "600"],
   display: "swap",
   variable: "--font-golos",
-});
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
-  variable: "--font-unbounded",
 });
 
 export const metadata: Metadata = {
@@ -142,7 +138,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${golos.variable} ${unbounded.variable}`}>
+    <html lang="ru" className={golos.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
