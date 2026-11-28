@@ -1011,10 +1011,8 @@ export default function Home() {
                 <div className="stat-label">м² построено</div>
               </div>
               <div className="stat-card">
-                <div className="stat-number" style={{ display: "flex", justifyContent: "center" }}>
-                  <span><Icon d={ICONS.shield} size={44} /></span>
-                </div>
-                <div className="stat-label">гарантия до 5 лет</div>
+                <div className="stat-number">5<span> лет</span></div>
+                <div className="stat-label">гарантия</div>
               </div>
             </Reveal>
             <div className="about-features">
