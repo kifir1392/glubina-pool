@@ -86,6 +86,7 @@ const FORMATS: {
   title: string;
   tag: string;
   short: string;
+  price: string;
   ours: string[];
   yours: string[];
 }[] = [
@@ -95,12 +96,13 @@ const FORMATS: {
     title: "Под ключ",
     tag: "Один подрядчик — одна ответственность",
     short: "Весь цикл на нас: от проекта и оборудования до чаши, монтажа и запуска воды.",
+    price: "от 800 000 ₽ · бассейн 4×2,5 м со стартовым набором оборудования",
     ours: [
       "Проект, гидравлические расчёты, 3D-визуализация",
       "Подбор и поставка оборудования и закладных",
       "Земляные работы, чаша, гидроизоляция, отделка",
       "Монтаж, пуско-наладка, запуск воды",
-      "Гарантия 5 лет на чашу и инженерию",
+      "Гарантия на чашу и инженерию",
     ],
     yours: ["Пожелания, бюджет и доступ к участку", "Приёмка этапов и готового бассейна"],
   },
@@ -110,6 +112,7 @@ const FORMATS: {
     title: "Только оборудование",
     tag: "Стройка на вас — железо на нас",
     short: "Оборудование и закладные из проверенных прайсов с подбором под ваш проект.",
+    price: "стоимость — по спецификации оборудования",
     ours: [
       "Подбор оборудования под чашу и бюджет",
       "Закладные: скиммеры, форсунки, прожекторы, донный слив",
@@ -124,6 +127,7 @@ const FORMATS: {
     title: "Только монтаж",
     tag: "Ваша чаша — наши руки",
     short: "Оборудование и материалы ваши — монтаж, обвязку и запуск берём на себя.",
+    price: "стоимость — по смете работ",
     ours: [
       "Монтаж оборудования и обвязка техпомещения",
       "Пуско-наладка и балансировка системы",
@@ -137,6 +141,7 @@ const FORMATS: {
     title: "Шеф-монтаж",
     tag: "Ваша бригада — мой контроль",
     short: "Работаю как ваш прораб: техника и материалы с вас, технология и качество — с меня.",
+    price: "стоимость — по договору сопровождения",
     ours: [
       "План этапов и технология работ",
       "Контроль качества на каждом этапе",
@@ -198,7 +203,7 @@ const FAQ = [
     a: "Да, работаем по всему югу России: Краснодарский край, Адыгея, Ростовская область, Ставропольский край, Крым. Выезд инженера для оценки по Краснодару — бесплатно, за пределами города — по согласованию.",
   },
   {
-    q: "Что входит в гарантию 5 лет?",
+    q: "Что входит в гарантию?",
     a: "Гарантия распространяется на чашу бассейна (герметичность, конструктив) и все инженерные системы (насосы, фильтры, подогрев, автоматику). Сервисное обслуживание — отдельно.",
   },
   {
@@ -338,7 +343,8 @@ function BubblesLayer() {
 
     type Bubble = { x: number; y: number; r: number; vy: number; wob: number; ph: number; a: number };
     const bubbles: Bubble[] = [];
-    const MAX = 29;
+    // на мобильных пузыри остаются, но их меньше — бережём батарею
+    const MAX = window.innerWidth < 768 ? 20 : 29;
     const TAU = Math.PI * 2;
 
     const spawn = (x?: number, y?: number, boost = false) => {
@@ -657,6 +663,7 @@ export default function Home() {
                   {l.label}
                 </a>
               ))}
+              <a href="tel:+79189332053" className="header-phone">+7 (918) 933-20-53</a>
               <a href="#contacts" className="btn-nav">Обсудить проект</a>
             </nav>
             <button
@@ -680,6 +687,9 @@ export default function Home() {
                   {l.label}
                 </a>
               ))}
+              <a href="tel:+79189332053" className="header-phone" onClick={() => setIsMenuOpen(false)}>
+                +7 (918) 933-20-53
+              </a>
               <a href="#contacts" className="btn-nav" onClick={() => setIsMenuOpen(false)}>
                 Обсудить проект
               </a>
@@ -705,6 +715,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
+              <span className="hero-eyebrow">Строительство бассейнов под ключ · Краснодар и юг России</span>
               <h1 className="hero-title">
                 Бассейны
                 <br />
@@ -804,6 +815,10 @@ export default function Home() {
                       <span className="format-panel-tag">{preset.tag}</span>
                     </div>
                     <p className="format-panel-short">{preset.short}</p>
+                    <div className="format-price">
+                      <Icon d={ICONS.calc} size={16} />
+                      {preset.price}
+                    </div>
                     <div className="format-split">
                       <div className="format-col">
                         <div className="format-col-title ours">Берём на себя</div>
@@ -956,7 +971,7 @@ export default function Home() {
               <span className="section-label">О компании</span>
               <h2 className="section-title">Почему выбирают нас</h2>
               <p className="section-subtitle">
-                12 лет строим бассейны. 150+ довольных клиентов. 5 лет гарантии.
+                12 лет строим бассейны. 150+ довольных клиентов. Даём гарантию.
                 Цифры говорят сами за себя.
               </p>
             </Reveal>
@@ -974,15 +989,17 @@ export default function Home() {
                 <div className="stat-label">м² построено</div>
               </div>
               <div className="stat-card">
-                <div className="stat-number">5<span> лет</span></div>
-                <div className="stat-label">гарантия на работы</div>
+                <div className="stat-number" style={{ display: "flex", justifyContent: "center" }}>
+                  <span><Icon d={ICONS.shield} size={44} /></span>
+                </div>
+                <div className="stat-label">гарантия на чашу и работы</div>
               </div>
             </Reveal>
             <div className="about-features">
               {[
                 {
                   icon: "shield",
-                  title: "Гарантия 5 лет",
+                  title: "Гарантия",
                   desc: "На чашу и инженерные системы. Сервисное обслуживание после сдачи.",
                 },
                 {
@@ -1124,7 +1141,8 @@ export default function Home() {
                   </div>
                 )}
                 <p className="form-note">
-                  Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                  Нажимая кнопку, вы соглашаетесь с{" "}
+                  <a href="/privacy/">обработкой персональных данных</a>
                 </p>
               </form>
             </div>
@@ -1183,6 +1201,14 @@ export default function Home() {
                 </ul>
               </div>
               <div>
+                <h4 className="footer-title">Услуги</h4>
+                <ul className="footer-list">
+                  {SERVICE_PAGES.map((s) => (
+                    <li key={s.href}><a href={s.href}>{s.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
                 <h4 className="footer-title">Контакты</h4>
                 <ul className="footer-list">
                   <li><span>Краснодар, Россия</span></li>
@@ -1191,7 +1217,9 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            <div className="footer-bottom">© 2026 Глубина. Все права защищены.</div>
+            <div className="footer-bottom">
+              © 2026 Глубина · ИП Никифоров Д.В. · ИНН 910514818620 · ОГРНИП 325911200032287 · <a href="/privacy/">Политика конфиденциальности</a>
+            </div>
           </div>
         </footer>
 

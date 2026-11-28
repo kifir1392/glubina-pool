@@ -31,6 +31,7 @@ export default function SiteHeader() {
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} className="nav-link">{l.label}</a>
           ))}
+          <a href="tel:+79189332053" className="header-phone">+7 (918) 933-20-53</a>
           <a href="/#contacts" className="btn-nav">Обсудить проект</a>
         </nav>
         <button
@@ -53,6 +54,7 @@ export default function SiteHeader() {
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} className="nav-link" onClick={() => setOpen(false)}>{l.label}</a>
           ))}
+          <a href="tel:+79189332053" className="header-phone" onClick={() => setOpen(false)}>+7 (918) 933-20-53</a>
           <a href="/#contacts" className="btn-nav" onClick={() => setOpen(false)}>Обсудить проект</a>
         </div>
       )}

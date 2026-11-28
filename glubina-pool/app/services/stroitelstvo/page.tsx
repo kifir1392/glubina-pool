@@ -4,7 +4,7 @@ import SiteHeader from "../../components/SiteHeader";
 export const metadata: Metadata = {
   title: "Строительство бассейнов под ключ в Краснодаре — Глубина",
   description:
-    "Полный цикл строительства бассейна: проектирование, земляные работы, бетонирование чаши, монтаж оборудования, пуско-наладка. Гарантия 5 лет. Краснодар и юг России.",
+    "Полный цикл строительства бассейна: проектирование, земляные работы, бетонирование чаши, монтаж оборудования, пуско-наладка. Гарантия на чашу и работы. Краснодар и юг России.",
   keywords: [
     "строительство бассейнов Краснодар",
     "бассейн под ключ",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Строительство бассейнов под ключ в Краснодаре",
     description:
-      "Полный цикл: от проекта до пуско-наладки. Гарантия 5 лет. Точные расчёты, своя бригада.",
+      "Полный цикл: от проекта до пуско-наладки. Гарантия на чашу и работы. Точные расчёты, своя бригада.",
     url: "https://glubina-pool.ru/services/stroitelstvo/",
     type: "website",
   },
@@ -84,7 +84,7 @@ export default function StroitelstvoPage() {
           <span className="section-label">Услуга</span>
           <h1 className="service-hero-title">Строительство бассейнов под ключ</h1>
           <p className="service-hero-subtitle">
-            Полный цикл: от выезда на участок до пуско-наладки. Один подрядчик — одна ответственность. Гарантия 5 лет на чашу и работы.
+            Полный цикл: от выезда на участок до пуско-наладки. Один подрядчик — одна ответственность. Гарантия на чашу и работы.
           </p>
           <div className="service-hero-buttons">
             <a href="/#contacts" className="btn-primary">Получить расчёт</a>
@@ -168,59 +168,15 @@ export default function StroitelstvoPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section
-        className="service-cta"
-        style={{
-          padding: "80px 20px",
-          background: "linear-gradient(135deg, #0f4c75 0%, #050914 100%)",
-          color: "#ffffff",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 700,
-            margin: "0 auto",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "clamp(28px, 4vw, 40px)",
-              fontWeight: 800,
-              margin: "0 0 16px",
-              lineHeight: 1.2,
-            }}
-          >
-            Готовы обсудить проект?
-          </h2>
-          <p
-            style={{
-              fontSize: 17,
-              lineHeight: 1.6,
-              color: "rgba(255, 255, 255, 0.7)",
-              margin: "0 0 32px",
-            }}
-          >
+      <section className="service-cta">
+        <div className="service-cta-inner">
+          <h2>Готовы обсудить проект?</h2>
+          <p>
             Оставьте заявку — ответим в течение рабочего дня. Выезд инженера для оценки по Краснодару — бесплатно, за пределами города — по согласованию.
           </p>
-          <div
-            style={{
-              display: "flex",
-              gap: 16,
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <a href="/#contacts" className="btn-primary" style={{ textDecoration: "none" }}>
-              Оставить заявку
-            </a>
-            <a
-              href="tel:+79189332053"
-              className="btn-secondary"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
-              +7 (918) 933-20-53
-            </a>
+          <div className="service-cta-buttons">
+            <a href="/#contacts" className="btn-primary">Оставить заявку</a>
+            <a href="tel:+79189332053" className="btn-secondary">+7 (918) 933-20-53</a>
           </div>
         </div>
       </section>
@@ -248,16 +204,25 @@ export default function StroitelstvoPage() {
               </ul>
             </div>
             <div>
+              <h4 className="footer-title">Услуги</h4>
+              <ul className="footer-list">
+                <li><a href="/services/proektirovanie/">Проектирование и дизайн</a></li>
+                <li><a href="/services/inzhenernye-sistemy/">Инженерные системы</a></li>
+                <li><a href="/services/stroitelstvo/">Строительство</a></li>
+                <li><a href="/services/servis/">Сервис и обслуживание</a></li>
+              </ul>
+            </div>
+            <div>
               <h4 className="footer-title">Контакты</h4>
               <ul className="footer-list">
                 <li><span>Краснодар, Россия</span></li>
-                <li><a href="tel:+79189332053" style={{ color: 'inherit', textDecoration: 'none' }}>+7 (918) 933-20-53</a></li>
+                <li><a href="tel:+79189332053">+7 (918) 933-20-53</a></li>
                 <li><span>info@glubina-pool.ru</span></li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            © 2026 Глубина. Все права защищены.
+            © 2026 Глубина · ИП Никифоров Д.В. · ИНН 910514818620 · ОГРНИП 325911200032287 · <a href="/privacy/">Политика конфиденциальности</a>
           </div>
         </div>
       </footer>

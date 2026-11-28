@@ -1,12 +1,25 @@
 import type { Metadata, Viewport } from "next";
+import { Golos_Text, Unbounded } from "next/font/google";
 import "./globals.css";
+
+// Самохостинг шрифтов через next/font: без запросов к Google из браузера
+const golos = Golos_Text({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-golos",
+});
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-unbounded",
+});
 
 export const metadata: Metadata = {
   // КРИТИЧНО: базовый URL для абсолютных ссылок в og:image
   metadataBase: new URL("https://glubina-pool.ru"),
   title: "Глубина — Строительство бассейнов под ключ в Краснодаре",
   description:
-    "Проектирование и строительство бассейнов в Краснодаре и на юге России. Инженерный подход, точные расчёты, гарантия 5 лет. 12 лет опыта, 150+ реализованных объектов.",
+    "Проектирование и строительство бассейнов в Краснодаре и на юге России. Инженерный подход, точные расчёты, гарантия. 12 лет опыта, 150+ реализованных объектов.",
   keywords: [
     "строительство бассейнов Краснодар",
     "бассейны под ключ",
@@ -35,7 +48,7 @@ export const metadata: Metadata = {
     siteName: "Глубина",
     title: "Глубина — Строительство бассейнов под ключ в Краснодаре",
     description:
-      "Инженерный подход к каждому проекту. Точные расчёты, проверенное оборудование, гарантия 5 лет.",
+      "Инженерный подход к каждому проекту. Точные расчёты, проверенное оборудование, гарантия.",
     images: [
       {
         url: "/og-image.jpg",
@@ -48,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Глубина — Строительство бассейнов под ключ",
-    description: "Инженерный подход, гарантия 5 лет. Краснодар и юг России.",
+    description: "Инженерный подход, гарантия. Краснодар и юг России.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -81,7 +94,7 @@ const jsonLd = {
   name: "Глубина",
   alternateName: "Glubina Pool",
   description:
-    "Проектирование и строительство бассейнов под ключ в Краснодаре и на юге России. Инженерный подход, точные расчёты, гарантия 5 лет.",
+    "Проектирование и строительство бассейнов под ключ в Краснодаре и на юге России. Инженерный подход, точные расчёты, гарантия.",
   url: "https://glubina-pool.ru",
   telephone: "+7 (918) 933 20 53",
   email: "info@glubina-pool.ru",
@@ -129,14 +142,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${golos.variable} ${unbounded.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

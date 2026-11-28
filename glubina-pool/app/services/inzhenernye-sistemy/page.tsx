@@ -164,29 +164,15 @@ export default function InzhenernyeSistemyPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section
-        className="service-cta"
-        style={{
-          padding: "80px 20px",
-          background: "linear-gradient(135deg, #0f4c75 0%, #050914 100%)",
-          color: "#ffffff",
-          textAlign: "center",
-        }} 
-      >
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, margin: "0 0 16px", lineHeight: 1.2 }}>
-            Готовы обсудить проект?
-          </h2>
-          <p style={{ fontSize: 17, lineHeight: 1.6, color: "rgba(255, 255, 255, 0.7)", margin: "0 0 32px" }}>
+      <section className="service-cta">
+        <div className="service-cta-inner">
+          <h2>Готовы обсудить проект?</h2>
+          <p>
             Оставьте заявку — ответим в течение рабочего дня. Выезд инженера для оценки по Краснодару — бесплатно, за пределами города — по согласованию.
           </p>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="/#contacts" className="btn-primary" style={{ textDecoration: "none" }}>
-              Оставить заявку
-            </a>
-            <a href="tel:+79189332053" className="btn-secondary" style={{ textDecoration: "none", color: "#ffffff" }}>
-              +7 (918) 933-20-53
-            </a>
+          <div className="service-cta-buttons">
+            <a href="/#contacts" className="btn-primary">Оставить заявку</a>
+            <a href="tel:+79189332053" className="btn-secondary">+7 (918) 933-20-53</a>
           </div>
         </div>
       </section>
@@ -214,16 +200,25 @@ export default function InzhenernyeSistemyPage() {
               </ul>
             </div>
             <div>
+              <h4 className="footer-title">Услуги</h4>
+              <ul className="footer-list">
+                <li><a href="/services/proektirovanie/">Проектирование и дизайн</a></li>
+                <li><a href="/services/inzhenernye-sistemy/">Инженерные системы</a></li>
+                <li><a href="/services/stroitelstvo/">Строительство</a></li>
+                <li><a href="/services/servis/">Сервис и обслуживание</a></li>
+              </ul>
+            </div>
+            <div>
               <h4 className="footer-title">Контакты</h4>
               <ul className="footer-list">
                 <li><span>Краснодар, Россия</span></li>
-                <li><a href="tel:+79189332053" style={{ color: 'inherit', textDecoration: 'none' }}>+7 (918) 933-20-53</a></li>
+                <li><a href="tel:+79189332053">+7 (918) 933-20-53</a></li>
                 <li><span>info@glubina-pool.ru</span></li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            © 2026 Глубина. Все права защищены.
+            © 2026 Глубина · ИП Никифоров Д.В. · ИНН 910514818620 · ОГРНИП 325911200032287 · <a href="/privacy/">Политика конфиденциальности</a>
           </div>
         </div>
       </footer>
