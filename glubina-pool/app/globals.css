@@ -1705,13 +1705,7 @@ body::after {
   letter-spacing: -0.01em;
 }
 
-.hero-title {
-  font-family: var(--font-unbounded), system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 2.25rem;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
+/* Герой — прежний шрифт и размеры (Unbounded здесь смотрелся странно) */
 
 .section-title {
   font-family: var(--font-unbounded), system-ui, sans-serif;
@@ -1732,7 +1726,6 @@ body::after {
 }
 
 @media (min-width: 768px) {
-  .hero-title { font-size: 3.5rem; }
   .section-title { font-size: 2.25rem; }
 }
 

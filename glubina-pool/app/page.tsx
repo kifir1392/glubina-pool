@@ -102,7 +102,7 @@ const FORMATS: {
       "Подбор и поставка оборудования и закладных",
       "Земляные работы, чаша, гидроизоляция, отделка",
       "Монтаж, пуско-наладка, запуск воды",
-      "Гарантия на чашу и инженерию",
+      "Гарантия до 5 лет",
     ],
     yours: ["Пожелания, бюджет и доступ к участку", "Приёмка этапов и готового бассейна"],
   },
@@ -196,15 +196,15 @@ const FAQ = [
   },
   {
     q: "Сколько времени занимает строительство?",
-    a: "От 45 до 90 дней в зависимости от сложности проекта. Включает проектирование, земляные работы, бетонирование, монтаж оборудования и пуско-наладку.",
+    a: "Композитный бассейн можно запустить за 10 дней с нуля — в зависимости от условий участка. Бетонная чаша: от 45 до 90 дней в зависимости от сложности проекта. Включает проектирование, земляные работы, чашу, монтаж оборудования и пуско-наладку.",
   },
   {
     q: "Работаете ли вы за пределами Краснодара?",
     a: "Да, работаем по всему югу России: Краснодарский край, Адыгея, Ростовская область, Ставропольский край, Крым. Выезд инженера для оценки по Краснодару — бесплатно, за пределами города — по согласованию.",
   },
   {
-    q: "Что входит в гарантию?",
-    a: "Гарантия распространяется на чашу бассейна (герметичность, конструктив) и все инженерные системы (насосы, фильтры, подогрев, автоматику). Сервисное обслуживание — отдельно.",
+    q: "Какая гарантия на работы?",
+    a: "Даём гарантию до 5 лет. Точный срок и условия фиксируются в договоре и зависят от состава работ. Сервисное обслуживание — отдельно.",
   },
   {
     q: "Нужно ли разрешение на строительство бассейна?",
@@ -468,6 +468,21 @@ function smoothScrollTo(id: string) {
   el.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 }
 
+// Маска телефона: всегда +7, клиент вводит только 10 цифр (8 заменяется на 7)
+function formatPhone(raw: string): string {
+  let d = raw.replace(/\D/g, "");
+  if (d.startsWith("8")) d = "7" + d.slice(1);
+  if (d.startsWith("7")) d = d.slice(1);
+  d = d.slice(0, 10);
+  let out = "+7";
+  if (d.length > 0) out += " (" + d.slice(0, 3);
+  if (d.length >= 3) out += ")";
+  if (d.length > 3) out += " " + d.slice(3, 6);
+  if (d.length > 6) out += "-" + d.slice(6, 8);
+  if (d.length > 8) out += "-" + d.slice(8, 10);
+  return out;
+}
+
 const MESSENGERS = [
   {
     id: "wa",
@@ -546,6 +561,7 @@ export default function Home() {
   const [customModules, setCustomModules] = useState<string[]>(["supply", "install"]);
 
   const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("+7");
   const [flash, setFlash] = useState(false);
   const flashTimer = useRef<number | null>(null);
 
@@ -621,6 +637,11 @@ export default function Home() {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitState === "sending") return;
+    if (phone.replace(/\D/g, "").length !== 11) {
+      setSubmitState("error");
+      setSubmitError("Введите номер телефона полностью: +7 и 10 цифр.");
+      return;
+    }
     const form = e.currentTarget;
     setSubmitState("sending");
     setSubmitError("");
@@ -633,6 +654,7 @@ export default function Home() {
         trackGoal("lead");
         form.reset();
         setMessage("");
+        setPhone("+7");
       } else {
         setSubmitState("error");
         setSubmitError(result.message || "Не удалось отправить заявку.");
@@ -729,7 +751,7 @@ export default function Home() {
               className="hero-subtitle"
             >
               От первого эскиза до первого заплыва — берём на себя всё или только то, что нужно вам.
-              Инженерный подход, точные расчёты, гарантия. Краснодар и юг России.
+              Инженерный подход, точные расчёты, гарантия до 5 лет. Краснодар и юг России.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -971,7 +993,7 @@ export default function Home() {
               <span className="section-label">О компании</span>
               <h2 className="section-title">Почему выбирают нас</h2>
               <p className="section-subtitle">
-                12 лет строим бассейны. 150+ довольных клиентов. Даём гарантию.
+                12 лет строим бассейны. 150+ довольных клиентов. Гарантия до 5 лет.
                 Цифры говорят сами за себя.
               </p>
             </Reveal>
@@ -992,15 +1014,15 @@ export default function Home() {
                 <div className="stat-number" style={{ display: "flex", justifyContent: "center" }}>
                   <span><Icon d={ICONS.shield} size={44} /></span>
                 </div>
-                <div className="stat-label">гарантия на чашу и работы</div>
+                <div className="stat-label">гарантия до 5 лет</div>
               </div>
             </Reveal>
             <div className="about-features">
               {[
                 {
                   icon: "shield",
-                  title: "Гарантия",
-                  desc: "На чашу и инженерные системы. Сервисное обслуживание после сдачи.",
+                  title: "Гарантия до 5 лет",
+                  desc: "Точный срок и условия фиксируем в договоре. Сервисное обслуживание после сдачи.",
                 },
                 {
                   icon: "calc",
@@ -1113,6 +1135,8 @@ export default function Home() {
                     id="phone"
                     name="phone"
                     placeholder="+7 (___) ___-__-__"
+                    value={phone}
+                    onChange={(e) => setPhone(formatPhone(e.target.value))}
                     required
                   />
                 </div>
